@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  db:
+    container_name: spring_data_jpa
+    image: postgres:alpine
+    environment:
+      POSTGRES_USER: app_data
+      POSTGRES_PASSWORD: p@ssw0rd
+      PG_DATA: /data/postgres
+    volumes:
+      - db:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - db
+    restart: unless-stopped
+
+networks:
+  db:
+    driver: bridge
+
+volumes:
+  db:
