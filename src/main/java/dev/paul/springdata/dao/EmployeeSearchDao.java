@@ -17,7 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EmployeeSearchDao {
 
-    private EntityManager em;
+    private final EntityManager em;
 
     public List<Employee> findAllBySimpleQuery(String firstname, String lastname, String email) {
         CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
